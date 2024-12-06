@@ -13,12 +13,12 @@ logger = logging.getLogger(__name__)
 
 class PostgresDataGenerator:
     def __init__(self, 
-                 pg_host='postgres', 
+                 pg_host='localhost', 
                  pg_port=5432, 
                  pg_db='streamdb', 
-                 pg_user='streamuser', 
-                 pg_password='streampassword',
-                 kafka_bootstrap_servers=['kafka:9092']):
+                 pg_user='postgres', 
+                 pg_password='123456',
+                 kafka_bootstrap_servers=['localhost:9092']):
         # PostgreSQL Connection
         self.pg_conn_params = {
             'host': pg_host,
