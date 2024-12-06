@@ -1,0 +1,24 @@
+FROM flink:1.14.4-scala_2.12
+
+# Install Python and pip
+USER root
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /opt/flink/jobs
+
+# Copy requirements and install Python dependencies
+COPY src/requirements.txt ./requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Copy Flink job
+COPY src/flink_jobs /opt/flink/jobs
+
+# Set environment variables
+ENV PYTHONPATH=/opt/flink/jobs
+ENV FLINK_HOME=/opt/flink
+
+# Default command
+CMD ["python3", "stream_processor.py"]

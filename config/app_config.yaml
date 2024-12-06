@@ -1,0 +1,22 @@
+# config/app_config.yaml
+database:
+  host: postgres
+  port: 5432
+  name: streamdb
+  user: streamuser
+  password: streampassword
+
+kafka:
+  bootstrap_servers: 
+    - kafka:9092
+  topics:
+    source: user_events
+    processed: processed_events
+
+flink:
+  job_name: user_event_stream_processor
+  parallelism: 2
+
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
