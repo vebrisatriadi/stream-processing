@@ -15,9 +15,12 @@ class UserEventProcessor:
         
         # Update the jar paths to include the full Flink Kafka connector
         self.env.add_jars(
-            "file:///opt/flink/lib/flink-connector-kafka-1.17.1.jar",  # Update version as needed
-            "file:///opt/flink/lib/kafka-clients-3.2.3.jar",           # Add Kafka clients
-            "file:///opt/flink/lib/postgres-connector.jar"
+            "file:///Users/vebrisatriadi/Flink/flink-1.20.0/lib/flink-connector-files-1.20.0.jar",
+            "file:///Users/vebrisatriadi/Flink/flink-1.20.0/lib/flink-connector-kafka-1.20.0.jar",  # Updated version
+            "file:///Users/vebrisatriadi/Flink/flink-1.20.0/lib/kafka-clients-3.2.3.jar"
+            # "file:///opt/flink/lib/flink-connector-kafka-1.17.1.jar",  # Update version as needed
+            # "file:///opt/flink/lib/kafka-clients-3.2.3.jar",           # Add Kafka clients
+            # "file:///opt/flink/lib/postgres-connector.jar"
         )
         
     def setup_kafka_source(self, topic='user_events', bootstrap_servers='localhost:9092'):
