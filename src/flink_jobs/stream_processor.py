@@ -55,8 +55,8 @@ class UserEventProcessor:
                     .build())
                 .option('url', 'jdbc:postgresql://postgres:5432/streamdb')
                 .option('table-name', table_name)
-                .option('username', 'postgres')
-                .option('password', '123456')
+                .option('username', 'X')
+                .option('password', 'X')
                 .build()
         )
 
